@@ -1,0 +1,17 @@
+D:\thực tâp\MSV-22T1020274\SV22T1020274.Infrastructure\bin\Debug\net10.0\SV22T1020274.Infrastructure.deps.json
+D:\thực tâp\MSV-22T1020274\SV22T1020274.Infrastructure\bin\Debug\net10.0\SV22T1020274.Infrastructure.dll
+D:\thực tâp\MSV-22T1020274\SV22T1020274.Infrastructure\bin\Debug\net10.0\SV22T1020274.Infrastructure.pdb
+D:\thực tâp\MSV-22T1020274\SV22T1020274.Infrastructure\bin\Debug\net10.0\SV22T1020274.Application.dll
+D:\thực tâp\MSV-22T1020274\SV22T1020274.Infrastructure\bin\Debug\net10.0\SV22T1020274.Domain.dll
+D:\thực tâp\MSV-22T1020274\SV22T1020274.Infrastructure\bin\Debug\net10.0\SV22T1020274.Application.pdb
+D:\thực tâp\MSV-22T1020274\SV22T1020274.Infrastructure\bin\Debug\net10.0\SV22T1020274.Domain.pdb
+D:\thực tâp\MSV-22T1020274\SV22T1020274.Infrastructure\obj\Debug\net10.0\SV22T1020274.Infrastructure.csproj.AssemblyReference.cache
+D:\thực tâp\MSV-22T1020274\SV22T1020274.Infrastructure\obj\Debug\net10.0\SV22T1020274.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\thực tâp\MSV-22T1020274\SV22T1020274.Infrastructure\obj\Debug\net10.0\SV22T1020274.Infrastructure.AssemblyInfoInputs.cache
+D:\thực tâp\MSV-22T1020274\SV22T1020274.Infrastructure\obj\Debug\net10.0\SV22T1020274.Infrastructure.AssemblyInfo.cs
+D:\thực tâp\MSV-22T1020274\SV22T1020274.Infrastructure\obj\Debug\net10.0\SV22T1020274.Infrastructure.csproj.CoreCompileInputs.cache
+D:\thực tâp\MSV-22T1020274\SV22T1020274.Infrastructure\obj\Debug\net10.0\SV22T102.4EE74E30.Up2Date
+D:\thực tâp\MSV-22T1020274\SV22T1020274.Infrastructure\obj\Debug\net10.0\SV22T1020274.Infrastructure.dll
+D:\thực tâp\MSV-22T1020274\SV22T1020274.Infrastructure\obj\Debug\net10.0\refint\SV22T1020274.Infrastructure.dll
+D:\thực tâp\MSV-22T1020274\SV22T1020274.Infrastructure\obj\Debug\net10.0\SV22T1020274.Infrastructure.pdb
+D:\thực tâp\MSV-22T1020274\SV22T1020274.Infrastructure\obj\Debug\net10.0\ref\SV22T1020274.Infrastructure.dll
