@@ -1,0 +1,17 @@
+D:\phát triển ứng dụng web\SV22T1020274\SV22T1020274.BusinessLayers\bin\Debug\net10.0\SV22T1020274.BusinessLayers.deps.json
+D:\phát triển ứng dụng web\SV22T1020274\SV22T1020274.BusinessLayers\bin\Debug\net10.0\SV22T1020274.BusinessLayers.dll
+D:\phát triển ứng dụng web\SV22T1020274\SV22T1020274.BusinessLayers\bin\Debug\net10.0\SV22T1020274.BusinessLayers.pdb
+D:\phát triển ứng dụng web\SV22T1020274\SV22T1020274.BusinessLayers\bin\Debug\net10.0\SV22T1020274.Datalayers.dll
+D:\phát triển ứng dụng web\SV22T1020274\SV22T1020274.BusinessLayers\bin\Debug\net10.0\SV22T1020274.Models.dll
+D:\phát triển ứng dụng web\SV22T1020274\SV22T1020274.BusinessLayers\bin\Debug\net10.0\SV22T1020274.Datalayers.pdb
+D:\phát triển ứng dụng web\SV22T1020274\SV22T1020274.BusinessLayers\bin\Debug\net10.0\SV22T1020274.Models.pdb
+D:\phát triển ứng dụng web\SV22T1020274\SV22T1020274.BusinessLayers\obj\Debug\net10.0\SV22T1020274.BusinessLayers.csproj.AssemblyReference.cache
+D:\phát triển ứng dụng web\SV22T1020274\SV22T1020274.BusinessLayers\obj\Debug\net10.0\SV22T1020274.BusinessLayers.GeneratedMSBuildEditorConfig.editorconfig
+D:\phát triển ứng dụng web\SV22T1020274\SV22T1020274.BusinessLayers\obj\Debug\net10.0\SV22T1020274.BusinessLayers.AssemblyInfoInputs.cache
+D:\phát triển ứng dụng web\SV22T1020274\SV22T1020274.BusinessLayers\obj\Debug\net10.0\SV22T1020274.BusinessLayers.AssemblyInfo.cs
+D:\phát triển ứng dụng web\SV22T1020274\SV22T1020274.BusinessLayers\obj\Debug\net10.0\SV22T1020274.BusinessLayers.csproj.CoreCompileInputs.cache
+D:\phát triển ứng dụng web\SV22T1020274\SV22T1020274.BusinessLayers\obj\Debug\net10.0\SV22T102.3BAE3B13.Up2Date
+D:\phát triển ứng dụng web\SV22T1020274\SV22T1020274.BusinessLayers\obj\Debug\net10.0\SV22T1020274.BusinessLayers.dll
+D:\phát triển ứng dụng web\SV22T1020274\SV22T1020274.BusinessLayers\obj\Debug\net10.0\refint\SV22T1020274.BusinessLayers.dll
+D:\phát triển ứng dụng web\SV22T1020274\SV22T1020274.BusinessLayers\obj\Debug\net10.0\SV22T1020274.BusinessLayers.pdb
+D:\phát triển ứng dụng web\SV22T1020274\SV22T1020274.BusinessLayers\obj\Debug\net10.0\ref\SV22T1020274.BusinessLayers.dll
