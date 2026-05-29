@@ -1,0 +1,11 @@
+D:\thực tâp\MSV-22T1020274\SV22T1020274.Domain\bin\Debug\net10.0\SV22T1020274.Domain.deps.json
+D:\thực tâp\MSV-22T1020274\SV22T1020274.Domain\bin\Debug\net10.0\SV22T1020274.Domain.dll
+D:\thực tâp\MSV-22T1020274\SV22T1020274.Domain\bin\Debug\net10.0\SV22T1020274.Domain.pdb
+D:\thực tâp\MSV-22T1020274\SV22T1020274.Domain\obj\Debug\net10.0\SV22T1020274.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\thực tâp\MSV-22T1020274\SV22T1020274.Domain\obj\Debug\net10.0\SV22T1020274.Domain.AssemblyInfoInputs.cache
+D:\thực tâp\MSV-22T1020274\SV22T1020274.Domain\obj\Debug\net10.0\SV22T1020274.Domain.AssemblyInfo.cs
+D:\thực tâp\MSV-22T1020274\SV22T1020274.Domain\obj\Debug\net10.0\SV22T1020274.Domain.csproj.CoreCompileInputs.cache
+D:\thực tâp\MSV-22T1020274\SV22T1020274.Domain\obj\Debug\net10.0\SV22T1020274.Domain.dll
+D:\thực tâp\MSV-22T1020274\SV22T1020274.Domain\obj\Debug\net10.0\refint\SV22T1020274.Domain.dll
+D:\thực tâp\MSV-22T1020274\SV22T1020274.Domain\obj\Debug\net10.0\SV22T1020274.Domain.pdb
+D:\thực tâp\MSV-22T1020274\SV22T1020274.Domain\obj\Debug\net10.0\ref\SV22T1020274.Domain.dll

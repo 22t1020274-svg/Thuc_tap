@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>SV22T1020274.Domain</RootNamespace>
+    <AssemblyName>SV22T1020274.Domain</AssemblyName>
+  </PropertyGroup>
+
+</Project>
