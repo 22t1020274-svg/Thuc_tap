@@ -1,0 +1,46 @@
+@model CheckoutViewModel
+@{
+    ViewData["Title"] = "Đặt hàng";
+    var provinces = ViewBag.Provinces as List<Province> ?? new();
+}
+
+<h1 class="h3 mb-4">Thông tin giao hàng</h1>
+
+<div class="row justify-content-center">
+    <div class="col-lg-7">
+        <div class="card shop-card">
+            <div class="card-body p-4">
+                <form asp-action="Checkout" method="post">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="text-danger small mb-3"></div>
+                    <div class="mb-3">
+                        <label asp-for="DeliveryProvince" class="form-label"></label>
+                        <select asp-for="DeliveryProvince" class="form-select">
+                            <option value="">— Chọn tỉnh/thành —</option>
+                            @foreach (var p in provinces)
+                            {
+                                <option value="@p.ProvinceName">@p.ProvinceName</option>
+                            }
+                        </select>
+                        <span asp-validation-for="DeliveryProvince" class="text-danger small"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="DeliveryAddress" class="form-label"></label>
+                        <textarea asp-for="DeliveryAddress" class="form-control" rows="3"></textarea>
+                        <span asp-validation-for="DeliveryAddress" class="text-danger small"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="DeliveryPhone" class="form-label"></label>
+                        <input asp-for="DeliveryPhone" class="form-control" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Xác nhận đặt hàng</button>
+                    <a asp-controller="Cart" asp-action="Index" class="btn btn-link">Quay lại giỏ</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,67 @@
+@model ProfileEditViewModel
+@{
+    ViewData["Title"] = "Hồ sơ cá nhân";
+    var provinces = ViewBag.Provinces as List<Province> ?? new();
+}
+
+<div class="row">
+    <div class="col-lg-8">
+        <div class="card shop-card">
+            <div class="card-body p-4">
+                <h1 class="h4 mb-3">Thông tin cá nhân</h1>
+                <form asp-action="Profile" method="post">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="text-danger small mb-3"></div>
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label"></label>
+                        <input asp-for="Email" class="form-control" readonly />
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="CustomerName" class="form-label"></label>
+                        <input asp-for="CustomerName" class="form-control" />
+                        <span asp-validation-for="CustomerName" class="text-danger small"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="ContactName" class="form-label"></label>
+                        <input asp-for="ContactName" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Province" class="form-label"></label>
+                        <select asp-for="Province" class="form-select">
+                            <option value="">— Chọn tỉnh/thành —</option>
+                            @foreach (var p in provinces)
+                            {
+                                <option value="@p.ProvinceName">@p.ProvinceName</option>
+                            }
+                        </select>
+                        <span asp-validation-for="Province" class="text-danger small"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Address" class="form-label"></label>
+                        <textarea asp-for="Address" class="form-control" rows="2"></textarea>
+                        <span asp-validation-for="Address" class="text-danger small"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Phone" class="form-label"></label>
+                        <input asp-for="Phone" class="form-control" />
+                        <span asp-validation-for="Phone" class="text-danger small"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 mt-4 mt-lg-0">
+        <div class="card shop-card">
+            <div class="card-body p-4">
+                <div class="fw-semibold mb-2">Bảo mật</div>
+                <p class="small text-muted mb-3">Đổi mật khẩu đăng nhập cửa hàng.</p>
+                <a asp-action="ChangePassword" class="btn btn-outline-secondary btn-sm">Đổi mật khẩu</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

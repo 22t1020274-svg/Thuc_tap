@@ -1,0 +1,85 @@
+@model List<CartDisplayLine>
+@{
+    ViewData["Title"] = "Giỏ hàng";
+    var total = ViewBag.Total as decimal? ?? 0;
+    var isAuth = User.Identity?.IsAuthenticated == true;
+}
+
+<h1 class="h3 mb-4">Giỏ hàng</h1>
+
+@if (Model.Count == 0)
+{
+    <p class="text-muted">Giỏ hàng đang trống. <a asp-controller="Product" asp-action="Index">Xem sản phẩm</a></p>
+}
+else
+{
+    <div class="table-responsive card shop-card">
+        <table class="table table-hover mb-0 align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>Sản phẩm</th>
+                    <th class="text-end">Đơn giá</th>
+                    <th class="text-center" style="width: 8rem;">Số lượng</th>
+                    <th class="text-end">Thành tiền</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var line in Model)
+                {
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center gap-2">
+                                @if (!string.IsNullOrWhiteSpace(line.Photo))
+                                {
+                                    <img src="~/images/products/@line.Photo" alt="" class="rounded" style="width: 48px; height: 48px; object-fit: cover;" />
+                                }
+                                <div>
+                                    <div class="fw-medium">@line.ProductName</div>
+                                    <div class="small text-muted">@line.Unit</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-end">@line.UnitPrice.ToString("N0") đ</td>
+                        <td>
+                            <form asp-action="Update" method="post" class="d-flex gap-1 justify-content-center">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="productId" value="@line.ProductID" />
+                                <input type="number" name="quantity" value="@line.Quantity" min="1" max="999" class="form-control form-control-sm" style="width: 4.5rem;" />
+                                <button type="submit" class="btn btn-sm btn-outline-secondary">Cập nhật</button>
+                            </form>
+                        </td>
+                        <td class="text-end fw-semibold">@line.LineTotal.ToString("N0") đ</td>
+                        <td class="text-end">
+                            <form asp-action="Remove" method="post" class="d-inline" onsubmit="return confirm('Xóa sản phẩm này khỏi giỏ?');">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="productId" value="@line.ProductID" />
+                                <button type="submit" class="btn btn-sm btn-outline-danger">Xóa</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mt-4">
+        <div>
+            <form asp-action="Clear" method="post" class="d-inline" onsubmit="return confirm('Xóa toàn bộ giỏ hàng?');">
+                @Html.AntiForgeryToken()
+                <button type="submit" class="btn btn-outline-secondary btn-sm">Xóa giỏ</button>
+            </form>
+        </div>
+        <div class="text-md-end">
+            <div class="h5 mb-2">Tạm tính: <span class="text-primary">@total.ToString("N0") đ</span></div>
+            @if (isAuth)
+            {
+                <a asp-controller="Order" asp-action="Checkout" class="btn btn-primary">Đặt hàng</a>
+            }
+            else
+            {
+                <a asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Url.Action("Checkout", "Order")" class="btn btn-primary">Đăng nhập để đặt hàng</a>
+            }
+        </div>
+    </div>
+}

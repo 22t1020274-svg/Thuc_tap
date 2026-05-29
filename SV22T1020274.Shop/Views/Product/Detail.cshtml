@@ -1,0 +1,80 @@
+@model Product
+@{
+    ViewData["Title"] = Model.ProductName;
+    var attrs = ViewBag.Attributes as List<ProductAttribute> ?? new();
+    var photos = ViewBag.Photos as List<ProductPhoto> ?? new();
+    var cat = ViewBag.Category as Category;
+}
+
+<nav aria-label="breadcrumb" class="mb-3">
+    <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item"><a asp-action="Index">Sản phẩm</a></li>
+        @if (cat != null)
+        {
+            <li class="breadcrumb-item">@cat.CategoryName</li>
+        }
+        <li class="breadcrumb-item active" aria-current="page">@Model.ProductName</li>
+    </ol>
+</nav>
+
+<div class="row g-4">
+    <div class="col-md-5">
+        @if (!string.IsNullOrWhiteSpace(Model.Photo))
+        {
+            <img src="~/images/products/@Model.Photo" class="img-fluid rounded shop-product-img w-100" alt="@Model.ProductName" />
+        }
+        else
+        {
+            <div class="ratio ratio-1x1 bg-light rounded d-flex align-items-center justify-content-center text-muted">Chưa có ảnh</div>
+        }
+        @if (photos.Count > 0)
+        {
+            <div class="row row-cols-4 g-2 mt-2">
+                @foreach (var ph in photos.Where(p => !p.IsHidden))
+                {
+                    <div class="col">
+                        @if (!string.IsNullOrWhiteSpace(ph.Photo))
+                        {
+                            <img src="~/images/products/@ph.Photo" class="img-fluid rounded" alt="" loading="lazy" />
+                        }
+                    </div>
+                }
+            </div>
+        }
+    </div>
+    <div class="col-md-7">
+        <h1 class="h3 mb-2">@Model.ProductName</h1>
+        <p class="text-muted mb-2">Đơn vị: @Model.Unit</p>
+        <p class="h4 text-primary mb-4">@Model.Price.ToString("N0") đ</p>
+        @if (!string.IsNullOrWhiteSpace(Model.ProductDescription))
+        {
+            <div class="mb-4">
+                <h2 class="h6">Mô tả</h2>
+                <div class="text-secondary">@Html.Raw(Html.Encode(Model.ProductDescription).Replace("\n", "<br />"))</div>
+            </div>
+        }
+        @if (attrs.Count > 0)
+        {
+            <h2 class="h6">Thông số</h2>
+            <dl class="row small">
+                @foreach (var a in attrs.OrderBy(x => x.DisplayOrder))
+                {
+                    <dt class="col-sm-4">@a.AttributeName</dt>
+                    <dd class="col-sm-8">@a.AttributeValue</dd>
+                }
+            </dl>
+        }
+        <form asp-controller="Cart" asp-action="Add" method="post" class="row g-2 align-items-end mt-3">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="productId" value="@Model.ProductID" />
+            <input type="hidden" name="returnUrl" value="@Context.Request.Path" />
+            <div class="col-auto">
+                <label class="form-label small mb-0">Số lượng</label>
+                <input type="number" name="quantity" value="1" min="1" max="999" class="form-control" style="width: 5rem;" />
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">Thêm vào giỏ</button>
+            </div>
+        </form>
+    </div>
+</div>

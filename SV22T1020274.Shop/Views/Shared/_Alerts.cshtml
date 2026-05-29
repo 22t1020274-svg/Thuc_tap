@@ -1,0 +1,14 @@
+@if (TempData["Message"] is string msg && !string.IsNullOrWhiteSpace(msg))
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @msg
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Đóng"></button>
+    </div>
+}
+@if (TempData["Error"] is string err && !string.IsNullOrWhiteSpace(err))
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @err
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Đóng"></button>
+    </div>
+}

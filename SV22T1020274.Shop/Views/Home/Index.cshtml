@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Trang chủ";
+}
+
+<div class="shop-hero mb-4">
+    <div class="row align-items-center">
+        <div class="col-lg-8">
+            <h1 class="display-6 fw-bold mb-3">Chào mừng đến cửa hàng</h1>
+            <a asp-controller="Product" asp-action="Index" class="btn btn-light btn-lg me-2">Xem sản phẩm</a>
+            @if (User.Identity?.IsAuthenticated != true)
+            {
+                <a asp-controller="Account" asp-action="Register" class="btn btn-outline-light btn-lg">Đăng ký</a>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card shop-card h-100">
+            <div class="card-body">
+                <h2 class="h5">Tìm kiếm</h2>
+                <p class="small text-muted mb-0">Lọc theo loại hàng, tên và khoảng giá trên trang sản phẩm.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shop-card h-100">
+            <div class="card-body">
+                <h2 class="h5">Giỏ hàng</h2>
+                <p class="small text-muted mb-0">Quản lý số lượng, xóa dòng hoặc xóa cả giỏ trước khi đặt hàng.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shop-card h-100">
+            <div class="card-body">
+                <h2 class="h5">Theo dõi đơn</h2>
+                <p class="small text-muted mb-0">Đăng nhập để xem trạng thái xử lý và lịch sử mua hàng.</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,101 @@
+html {
+  font-size: 15px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body {
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  background-color: #f6f7fb;
+  color: #1a1d26;
+}
+
+.shop-topbar {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.25);
+}
+
+.shop-topbar .nav-link {
+  color: rgba(255, 255, 255, 0.88) !important;
+  border-radius: 0.35rem;
+  padding: 0.4rem 0.65rem;
+}
+
+.shop-topbar .nav-link:hover {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.shop-topbar .navbar-brand {
+  color: #fff !important;
+  letter-spacing: -0.02em;
+}
+
+.shop-topbar-logout {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.88);
+  padding: 0.4rem 0.65rem;
+  border-radius: 0.35rem;
+  font: inherit;
+  cursor: pointer;
+}
+
+.shop-topbar-logout:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.shop-footer {
+  background: #0f172a;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.shop-footer a {
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: none;
+}
+
+.shop-footer a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.shop-card {
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.shop-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.1);
+}
+
+.shop-product-img {
+  object-fit: cover;
+  border-radius: 0.5rem;
+  background: #e8ecf4;
+}
+
+.shop-hero {
+  border-radius: 1rem;
+  background: linear-gradient(135deg, #334155 0%, #1e293b 50%, #0f172a 100%);
+  color: #fff;
+  padding: 2.5rem 2rem;
+}
+
+.btn:focus,
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25);
+}
+
+.pagination .page-link {
+  border-radius: 0.4rem;
+  margin: 0 0.15rem;
+}

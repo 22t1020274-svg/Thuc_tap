@@ -1,0 +1,113 @@
+@model PagedResult<Product>
+@{
+    ViewData["Title"] = "Sản phẩm";
+    var input = ViewBag.Input as ProductSearchInput ?? new ProductSearchInput();
+    var categories = ViewBag.Categories as List<Category> ?? new();
+}
+
+<h1 class="h3 mb-4">Danh mục sản phẩm</h1>
+
+<div class="card shop-card mb-4">
+    <div class="card-body p-3">
+        <form method="get" asp-action="Index" class="row g-2 align-items-end">
+            <input type="hidden" name="page" value="1" />
+            <div class="col-md-3">
+                <label class="form-label small mb-0">Loại hàng</label>
+                <select name="categoryId" class="form-select form-select-sm">
+                    <option value="0">Tất cả</option>
+                    @foreach (var c in categories)
+                    {
+                        if (input.CategoryID == c.CategoryID)
+                        {
+                            <option value="@c.CategoryID" selected>@c.CategoryName</option>
+                        }
+                        else
+                        {
+                            <option value="@c.CategoryID">@c.CategoryName</option>
+                        }
+                    }
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label small mb-0">Tên hàng</label>
+                <input type="search" name="search" value="@input.SearchValue" class="form-control form-control-sm" placeholder="Tìm theo tên" />
+            </div>
+            <div class="col-md-2">
+                <label class="form-label small mb-0">Giá từ</label>
+                <input type="number" name="minPrice" value="@(input.MinPrice > 0 ? input.MinPrice : null)" class="form-control form-control-sm" min="0" step="1000" placeholder="0" />
+            </div>
+            <div class="col-md-2">
+                <label class="form-label small mb-0">Đến</label>
+                <input type="number" name="maxPrice" value="@(input.MaxPrice > 0 ? input.MaxPrice : null)" class="form-control form-control-sm" min="0" step="1000" placeholder="Không giới hạn" />
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary btn-sm w-100">Lọc</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@if (Model.DataItems.Count == 0)
+{
+    <p class="text-muted">Không có sản phẩm phù hợp.</p>
+}
+else
+{
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+        @foreach (var item in Model.DataItems)
+        {
+            <div class="col">
+                <div class="card h-100 shop-card">
+                    @if (!string.IsNullOrWhiteSpace(item.Photo))
+                    {
+                        <img src="~/images/products/@item.Photo" class="card-img-top shop-product-img" alt="@item.ProductName" style="height: 180px;" loading="lazy" />
+                    }
+                    else
+                    {
+                        <div class="card-img-top shop-product-img d-flex align-items-center justify-content-center text-muted small" style="height: 180px;">Chưa có ảnh</div>
+                    }
+                    <div class="card-body d-flex flex-column">
+                        <h2 class="h6 card-title">@item.ProductName</h2>
+                        <p class="small text-muted mb-2">@item.Unit</p>
+                        <p class="fw-bold text-primary mb-3">@item.Price.ToString("N0") đ</p>
+                        <div class="mt-auto d-flex gap-2">
+                            <a asp-action="Detail" asp-route-id="@item.ProductID" class="btn btn-outline-primary btn-sm">Chi tiết</a>
+                            <form asp-controller="Cart" asp-action="Add" method="post" class="d-inline">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="productId" value="@item.ProductID" />
+                                <input type="hidden" name="quantity" value="1" />
+                                <input type="hidden" name="returnUrl" value="@Context.Request.Path@Context.Request.QueryString" />
+                                <button type="submit" class="btn btn-primary btn-sm">Thêm giỏ</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    @if (Model.PageCount > 1)
+    {
+        <nav class="mt-4" aria-label="Phân trang">
+            <ul class="pagination justify-content-center flex-wrap">
+                @foreach (var pi in Model.GetDisplayPages(3))
+                {
+                    if (pi.Page == 0)
+                    {
+                        <li class="page-item disabled"><span class="page-link">…</span></li>
+                    }
+                    else
+                    {
+                        <li class="page-item @(pi.IsCurrent ? "active" : "")">
+                            <a class="page-link" asp-action="Index" asp-route-page="@pi.Page"
+                               asp-route-categoryId="@input.CategoryID"
+                               asp-route-search="@input.SearchValue"
+                               asp-route-minPrice="@(input.MinPrice > 0 ? input.MinPrice : null)"
+                               asp-route-maxPrice="@(input.MaxPrice > 0 ? input.MaxPrice : null)">@pi.Page</a>
+                        </li>
+                    }
+                }
+            </ul>
+        </nav>
+    }
+}
